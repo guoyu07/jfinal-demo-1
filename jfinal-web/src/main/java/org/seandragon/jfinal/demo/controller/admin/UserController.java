@@ -6,7 +6,9 @@ import org.seandragon.jfinal.demo.interceptor.UserInterceptor;
 import org.seandragon.jfinal.demo.model.User;
 import org.seandragon.jfinal.demo.validator.UserValidator;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by sd on 17/2/16.
@@ -46,10 +48,22 @@ public class UserController extends Controller {
 
     public void delete() {
         User.dao.deleteById(getParaToInt());
-        redirect("/user");
+        Map result = new HashMap();
+        result.put("status", true);
+        renderJson(result);
     }
 
     public void search() {
-        renderJson(User.dao.find("select * from user"));
+
+        User searchModel = getModel(User.class);
+
+        List<User> userList = User.dao.find("select * from user");
+        //List<User> userList = User.dao.find("select * from user where id=%s", searchModel.get("id"));
+        Map result = new HashMap();
+        result.put("rows", userList);
+        result.put("results", userList.size());
+        result.put("hasError", false);
+        result.put("error", "");
+        renderJson(userList);
     }
 }

@@ -66,7 +66,7 @@
             menu: [{
                 text: '用户',
                 items: [
-                    {id: 'code', text: '查看用户', href: '/admin/user/search.jsp', closeable: false}
+                    {id: 'code', text: '查看用户', href: '/admin/user/search.html', closeable: false}
                 ]
             }]
         }];
