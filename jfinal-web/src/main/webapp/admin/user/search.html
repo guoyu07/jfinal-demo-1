@@ -38,6 +38,7 @@
 				<label class="control-label">性别：</label>
 				<div class="controls">
 					<select name="user.sex">
+						<option value="">请选择</option>
 						<option value="1">男</option>
 						<option value="0">女</option>
 					</select>
@@ -208,7 +209,7 @@
 						 }*/
                     ]
                 },
-                plugins: [editing, BUI.Grid.Plugins.CheckSelection, BUI.Grid.Plugins.AutoFit] // 插件形式引入多选表格
+                plugins: [editing, /*BUI.Grid.Plugins.CheckSelection,*/ BUI.Grid.Plugins.AutoFit] // 插件形式引入多选表格
             }),
             search = new Search({
                 store: store,
