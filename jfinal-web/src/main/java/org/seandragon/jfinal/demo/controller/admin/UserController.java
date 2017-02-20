@@ -57,7 +57,21 @@ public class UserController extends Controller {
 	}
 
 	public void search() {
-		List<User> userList = User.dao.find("select * from user");
+		StringBuffer sql = new StringBuffer();
+		sql.append("select * from user where 1 = 1");
+		User user = getModel(User.class);
+		if(null != user.get("id") && !"".equals(user.get("id").toString().trim()))
+			sql.append(" and id = " + user.get("id"));
+		if(null != user.get("userName") && !"".equals(user.get("userName").toString().trim()))
+			sql.append(" and userName = " + user.get("userName"));
+		if(null != user.get("pwd") && !"".equals(user.get("pwd").toString().trim()))
+			sql.append(" and pwd = " + user.get("pwd"));
+		if(null != user.get("sex") && !"".equals(user.get("sex").toString().trim()))
+			sql.append(" and sex = " + user.get("sex"));
+		if(null != user.get("birthDate") && !"".equals(user.get("birthDate").toString().trim()))
+			sql.append(" and birthDate = '" + user.get("birthDate") +"'");
+
+		List<User> userList = User.dao.find(sql.toString());
 		String[] attrNames = new String[0];
 		if (userList.size() > 0) {
 			attrNames = userList.get(0)._getAttrNames();
@@ -68,7 +82,7 @@ public class UserController extends Controller {
 				oneUser.remove(attrName);
 			}
 		}
-		//List<User> userList = User.dao.find("select * from user where id=%s", searchModel.get("id"));
+		// List<User> userList = User.dao.find("select * from user where id=%s", searchModel.get("id"));
 		Map result = new HashMap();
 		result.put("rows", userList);
 		result.put("results", userList.size());
