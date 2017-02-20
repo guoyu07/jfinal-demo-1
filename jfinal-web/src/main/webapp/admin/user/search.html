@@ -1,99 +1,99 @@
 <html>
 <head>
-    <title> 搜索表单</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <link href="/bui/assets/css/dpl-min.css" rel="stylesheet" type="text/css"/>
-    <link href="/bui/assets/css/bui-min.css" rel="stylesheet" type="text/css"/>
-    <link href="/bui/assets/css/page-min.css" rel="stylesheet" type="text/css"/>
+	<title> 搜索表单</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link href="/bui/assets/css/dpl-min.css" rel="stylesheet" type="text/css"/>
+	<link href="/bui/assets/css/bui-min.css" rel="stylesheet" type="text/css"/>
+	<link href="/bui/assets/css/page-min.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
 <div class="container">
 
-    <form id="searchForm" class="form-horizontal">
-        <div class="row">
-            <div class="control-group span8">
-                <label class="control-label">用户编号：</label>
-                <div class="controls">
-                    <input type="text" class="control-text" name="user.id">
-                </div>
-            </div>
-            <div class="control-group span8">
-                <label class="control-label">用户名：</label>
-                <div class="controls">
-                    <input type="text" class="control-text" name="user.userName">
-                </div>
-            </div>
-            <div class="control-group span8">
-                <label class="control-label">用户密码：</label>
-                <div class="controls">
-                    <input type="text" class="control-text" name="user.pwd">
-                </div>
-            </div>
-            <div class="control-group span8">
-                <label class="control-label">性别：</label>
-                <div class="controls">
-                    <select name="user.sex" id="" onselect="${user.sex}">
-                        <option value="1">男</option>
-                        <option value="0">女</option>
-                    </select>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group span9">
-                <label class="control-label">出生日期：</label>
-                <div class="controls">
-                    <input name="user.birthDate" type="text" class="calendar">
-                </div>
-            </div>
-            <div class="span3 offset2">
-                <button type="button" id="btnSearch" class="button button-primary">搜索</button>
-            </div>
-        </div>
-    </form>
+	<form id="searchForm" class="form-horizontal">
+		<div class="row">
+			<div class="control-group span8">
+				<label class="control-label">用户编号：</label>
+				<div class="controls">
+					<input type="text" class="control-text" name="user.id">
+				</div>
+			</div>
+			<div class="control-group span8">
+				<label class="control-label">用户名：</label>
+				<div class="controls">
+					<input type="text" class="control-text" name="user.userName">
+				</div>
+			</div>
+			<div class="control-group span8">
+				<label class="control-label">用户密码：</label>
+				<div class="controls">
+					<input type="text" class="control-text" name="user.pwd">
+				</div>
+			</div>
+			<div class="control-group span8">
+				<label class="control-label">性别：</label>
+				<div class="controls">
+					<select name="user.sex" id="" onselect="${user.sex}">
+						<option value="1">男</option>
+						<option value="0">女</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="control-group span9">
+				<label class="control-label">出生日期：</label>
+				<div class="controls">
+					<input name="user.birthDate" type="text" class="calendar">
+				</div>
+			</div>
+			<div class="span3 offset2">
+				<button type="button" id="btnSearch" class="button button-primary">搜索</button>
+			</div>
+		</div>
+	</form>
 
-    <div class="search-grid-container">
-        <div id="grid"></div>
-    </div>
+	<div class="search-grid-container">
+		<div id="grid"></div>
+	</div>
 </div>
 
 <div id="content" class="hide">
-    <form id="J_Form" class="form-horizontal" action="/admin/user/update">
-        <input type="hidden" name="id">
-        <div class="row">
-            <div class="control-group span8">
-                <label class="control-label"><s>*</s>用户名</label>
-                <div class="controls">
-                    <input name="userName" type="text" data-rules="{required:true}" class="input-normal control-text">
-                </div>
-            </div>
-            <div class="control-group span8">
-                <label class="control-label"><s>*</s>用户密码</label>
-                <div class="controls">
-                    <input name="pwd" type="text" data-rules="{required:true}" class="input-normal control-text">
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="control-group span8">
-                <label class="control-label"><s>*</s>用户性别：</label>
-                <div class="controls">
-                    <select data-rules="{required:true}" name="sex" class="input-normal">
-                        <option value="">请选择</option>
-                        <option value='1'>男</option>
-                        <option value='0'>女</option>
-                    </select>
-                </div>
-            </div>
-            <div class="control-group span8">
-                <label class="control-label"><s>*</s>出生日期</label>
-                <div class="controls">
-                    <input name="birthDate" type="text" data-rules="{required:true}" width="100px" class="calendar">
-                </div>
-            </div>
-        </div>
-    </form>
+	<form id="J_Form" class="form-horizontal" action="/admin/user/update">
+		<input type="hidden" name="id">
+		<div class="row">
+			<div class="control-group span8">
+				<label class="control-label"><s>*</s>用户名</label>
+				<div class="controls">
+					<input name="userName" type="text" data-rules="{required:true}" class="input-normal control-text">
+				</div>
+			</div>
+			<div class="control-group span8">
+				<label class="control-label"><s>*</s>用户密码</label>
+				<div class="controls">
+					<input name="pwd" type="text" data-rules="{required:true}" class="input-normal control-text">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="control-group span8">
+				<label class="control-label"><s>*</s>用户性别：</label>
+				<div class="controls">
+					<select data-rules="{required:true}" name="sex" class="input-normal">
+						<option value="">请选择</option>
+						<option value='1'>男</option>
+						<option value='0'>女</option>
+					</select>
+				</div>
+			</div>
+			<div class="control-group span8">
+				<label class="control-label"><s>*</s>出生日期</label>
+				<div class="controls">
+					<input name="birthDate" type="text" data-rules="{required:true}" width="100px" class="calendar">
+				</div>
+			</div>
+		</div>
+	</form>
 </div>
 
 <script type="text/javascript" src="/bui/assets/js/jquery-1.8.1.min.js"></script>
@@ -105,7 +105,7 @@
         var enumObj = {'1': "男", '0': "女", true: "男", false: "女"},
             editing = new BUI.Grid.Plugins.DialogEditing({
                 contentId: 'content', //设置隐藏的Dialog内容
-                autoSave: true, //添加数据或者修改数据时，自动保存
+                autoSave: false, //添加数据或者修改数据时，自动保存
                 triggerCls: 'btn-edit'
             }),
             columns = [
@@ -167,6 +167,12 @@
         function addFunction() {
             var newData = {isNew: true}; //标志是新增加的记录
             editing.add(newData, 'name'); //添加记录后，直接编辑
+        }
+
+        //更新操作
+        function updateFunction() {
+            var newDate = {isNew: false};//标志是旧数据
+            editing.add(newDate, 'name');
         }
 
         //删除操作
