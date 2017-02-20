@@ -55,7 +55,7 @@
     </ul>
 </div>
 <script type="text/javascript" src="/bui/assets/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="/bui/assets/js/bui.js"></script>
+<script type="text/javascript" src="/bui/assets/js/bui-min.js"></script>
 <script type="text/javascript" src="/bui/assets/js/config.js"></script>
 
 <script>
