@@ -9,12 +9,12 @@ import com.jfinal.log.Log4jLog;
  */
 public class UserInterceptor implements Interceptor {
 
-    Log4jLog log = Log4jLog.getLog(UserInterceptor.class);
+	Log4jLog log = Log4jLog.getLog(UserInterceptor.class);
 
-    @Override
-    public void intercept(Invocation invocation) {
-        log.debug("before\t" + invocation.getActionKey());
-        invocation.invoke();
-        log.debug("after\t" + invocation.getActionKey());
-    }
+	@Override
+	public void intercept(Invocation invocation) {
+		log.info("before\t" + invocation.getActionKey());
+		invocation.invoke();
+		log.warn("after\t" + invocation.getActionKey());
+	}
 }
