@@ -17,27 +17,13 @@ import java.util.Map;
 public class UserController extends Controller {
 
     public void index() {
-        List<User> userList = User.dao.find("select * from user");
-        //Page<User> paginate = User.dao.paginate(1, 99);
-        //setAttr("userPage", paginate);
-        //renderJson(userList);
-        setAttr("userList", userList);
-        renderJsp("list.jsp");
-    }
-
-    public void add() {
-        renderJsp("add.jsp");
+        redirect("/");
     }
 
     @Before(UserValidator.class)
     public void save() {
         getModel(User.class).save();
         redirect("/user");
-    }
-
-    public void edit() {
-        setAttr("user", User.dao.findById(getParaToInt()));
-        renderJsp("edit.jsp");
     }
 
     @Before(UserValidator.class)

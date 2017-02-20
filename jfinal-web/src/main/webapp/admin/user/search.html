@@ -5,6 +5,10 @@
 	<link href="/bui/assets/css/dpl-min.css" rel="stylesheet" type="text/css"/>
 	<link href="/bui/assets/css/bui-min.css" rel="stylesheet" type="text/css"/>
 	<link href="/bui/assets/css/page-min.css" rel="stylesheet" type="text/css"/>
+
+	<script type="text/javascript" src="/bui/assets/js/jquery-1.8.1.min.js"></script>
+	<script type="text/javascript" src="/bui/assets/js/bui-min.js"></script>
+	<script type="text/javascript" src="/bui/assets/js/config-min.js"></script>
 </head>
 <body>
 
@@ -94,11 +98,15 @@
 			</div>
 		</div>
 	</form>
+	<script type="text/javascript">
+        BUI.use('bui/form', function (Form) {
+            var form = new Form.HForm({
+                srcNode: '#J_Form'
+            });
+            form.render();
+        });
+	</script>
 </div>
-
-<script type="text/javascript" src="/bui/assets/js/jquery-1.8.1.min.js"></script>
-<script type="text/javascript" src="/bui/assets/js/bui-min.js"></script>
-<script type="text/javascript" src="/bui/assets/js/config-min.js"></script>
 <script type="text/javascript">
     BUI.use(['common/search', 'common/page'], function (Search) {
 
@@ -142,12 +150,10 @@
                             text: '<i class="icon-plus"></i>新建', btnCls: 'button button-small',
                             handler: addFunction
                         },
-                        {
+						/*{
                             text: '<i class="icon-edit"></i>编辑', btnCls: 'button button-small',
-                            handler: function () {
-                                BUI.Message.Alert('编辑');
-                            }
-                        },
+                            handler: updateFunction
+                        },*/
                         {
                             text: '<i class="icon-remove"></i>删除', btnCls: 'button button-small',
                             handler: delFunction
@@ -167,12 +173,6 @@
         function addFunction() {
             var newData = {isNew: true}; //标志是新增加的记录
             editing.add(newData, 'name'); //添加记录后，直接编辑
-        }
-
-        //更新操作
-        function updateFunction() {
-            var newDate = {isNew: false};//标志是旧数据
-            editing.add(newDate, 'name');
         }
 
         //删除操作

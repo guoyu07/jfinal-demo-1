@@ -145,6 +145,7 @@
                         <webAppSourceDirectory>src/main/webapp</webAppSourceDirectory>
                         <webAppConfig>
                             <contextPath>/</contextPath>
+                            <defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
                         </webAppConfig>
                         <connectors>
                             <connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">

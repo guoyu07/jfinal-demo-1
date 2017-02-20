@@ -10,6 +10,6 @@ public class RootController extends Controller {
 
     @ActionKey("/")
     public void index() {
-        renderJsp("/index.jsp");
+        renderJsp("/home.html");
     }
 }
