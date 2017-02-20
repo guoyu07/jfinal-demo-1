@@ -1,6 +1,7 @@
 package org.seandragon.jfinal.demo.config;
 
 import com.jfinal.config.*;
+import com.jfinal.kit.PathKit;
 import com.jfinal.kit.PropKit;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.druid.DruidPlugin;
@@ -43,6 +44,8 @@ public class DemoConfig extends JFinalConfig {
         // 配置ActiveRecord插件
         ActiveRecordPlugin arp = new ActiveRecordPlugin(druidPlugin);
         plugins.add(arp);
+        arp.setBaseSqlTemplatePath(PathKit.getRootClassPath());
+        arp.addSqlTemplate("/sql/user.sql");
         arp.addMapping("user", User.class);
     }
 

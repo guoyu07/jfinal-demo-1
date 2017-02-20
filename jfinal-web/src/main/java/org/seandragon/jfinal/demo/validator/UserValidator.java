@@ -8,6 +8,7 @@ import org.seandragon.jfinal.demo.model.User;
  * Created by sd on 17/2/16.
  */
 public class UserValidator extends Validator {
+
     @Override
     protected void validate(Controller controller) {
         System.out.println("UserValidator.validate");

@@ -2,6 +2,7 @@ package org.seandragon.jfinal.demo.controller.admin;
 
 import com.jfinal.aop.Before;
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.SqlPara;
 import org.seandragon.jfinal.demo.interceptor.UserInterceptor;
 import org.seandragon.jfinal.demo.model.User;
 import org.seandragon.jfinal.demo.validator.UserValidator;
@@ -57,21 +58,7 @@ public class UserController extends Controller {
 	}
 
 	public void search() {
-		StringBuffer sql = new StringBuffer();
-		sql.append("select * from user where 1 = 1");
-		User user = getModel(User.class);
-		if(null != user.get("id") && !"".equals(user.get("id").toString().trim()))
-			sql.append(" and id = " + user.get("id"));
-		if(null != user.get("userName") && !"".equals(user.get("userName").toString().trim()))
-			sql.append(" and userName = " + user.get("userName"));
-		if(null != user.get("pwd") && !"".equals(user.get("pwd").toString().trim()))
-			sql.append(" and pwd = " + user.get("pwd"));
-		if(null != user.get("sex") && !"".equals(user.get("sex").toString().trim()))
-			sql.append(" and sex = " + user.get("sex"));
-		if(null != user.get("birthDate") && !"".equals(user.get("birthDate").toString().trim()))
-			sql.append(" and birthDate = '" + user.get("birthDate") +"'");
-
-		List<User> userList = User.dao.find(sql.toString());
+		List<User> userList = getModel(User.class).findList();
 		String[] attrNames = new String[0];
 		if (userList.size() > 0) {
 			attrNames = userList.get(0)._getAttrNames();
