@@ -53,6 +53,10 @@
             <groupId>javax.servlet</groupId>
             <artifactId>jstl</artifactId>
         </dependency>
+        <dependency>
+            <groupId>pro.cg</groupId>
+            <artifactId>mojo</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <finalName>jfinal-web</finalName>
